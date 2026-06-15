@@ -464,7 +464,7 @@ export default function Home() {
                     </div>
                     <div>
                       <p className="text-[0.7rem] uppercase font-bold text-warm-gray tracking-wider">Teléfono / WhatsApp</p>
-                      <p className="font-semibold text-[0.95rem]">+593 99 999 9999</p>
+                      <p className="font-semibold text-[0.95rem]">+593 99 275 4572</p>
                     </div>
                   </div>
 
@@ -474,24 +474,16 @@ export default function Home() {
                     </div>
                     <div>
                       <p className="text-[0.7rem] uppercase font-bold text-warm-gray tracking-wider">Correo Electrónico</p>
-                      <p className="font-semibold text-[0.95rem]">contacto@realtoralexandra.com</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-brand border border-border-warm shadow-sm">
-                      <i className="fa-solid fa-location-dot"></i>
-                    </div>
-                    <div>
-                      <p className="text-[0.7rem] uppercase font-bold text-warm-gray tracking-wider">Oficina Principal</p>
-                      <p className="font-semibold text-[0.95rem]">Av. Portugal y Eloy Alfaro, Quito</p>
+                      <p className="font-semibold text-[0.95rem]">bgrealtor2000@gmail.com</p>
                     </div>
                   </div>
                 </div>
 
                 <div className="text-[0.8rem] text-warm-gray/80">
                   Horario de atención:<br />
-                  Lunes a Viernes: 09:00 - 18:00 | Sábados: 10:00 - 14:00
+                  Lunes a Miércoles: 09:00 - 18:00<br />
+                  Jueves: Sin atención<br />
+                  Viernes y Sábados: 09:00 - 17:00
                 </div>
               </div>
 
@@ -590,9 +582,6 @@ export default function Home() {
               <h3 className="text-xl font-bold font-title text-white tracking-tight mb-4 flex items-center gap-2">
                 <i className="fa-solid fa-house-chimney text-brand"></i> Bienes Raíces<span className="text-brand">.</span>
               </h3>
-              <p className="text-white/60 text-[0.9rem] leading-relaxed max-w-sm">
-                La plataforma inmobiliaria curada e inteligente para Quito y Ecuador. Conectamos propietarios con hogares con diseño, alma y propósito.
-              </p>
             </div>
 
             <div>
@@ -666,7 +655,7 @@ export default function Home() {
 
       {/* --- Botón WhatsApp Flotante --- */}
       <a 
-        href="https://wa.me/593999999999?text=Hola%20Bienes%20Ra%C3%ADces,%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20sus%20propiedades%20disponibles." 
+        href="https://wa.me/593992754572?text=Hola%20Bienes%20Ra%C3%ADces,%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20sus%20propiedades%20disponibles." 
         target="_blank" 
         rel="noopener noreferrer" 
         className="fixed bottom-8 right-8 w-14 h-14 bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-full flex items-center justify-center text-2xl shadow-lg hover:scale-110 active:scale-95 z-40 transition-all duration-300"
@@ -791,7 +780,7 @@ export default function Home() {
                   <p className="text-warm-gray text-xs">Conéctate al instante con un asesor para recibir información detallada.</p>
                 </div>
                 <a 
-                  href={`https://wa.me/593999999999?text=Hola%20Bienes%20Ra%C3%ADces,%20me%20interesa%20obtener%20m%C3%A1s%20detalles%20de%20la%20propiedad:%20"${encodeURIComponent(selectedProperty.title)}"%20con%20precio%20de%20$${selectedProperty.price}.`} 
+                  href={`https://wa.me/593992754572?text=Hola%20Bienes%20Ra%C3%ADces,%20me%20interesa%20obtener%20m%C3%A1s%20detalles%20de%20la%20propiedad:%20"${encodeURIComponent(selectedProperty.title)}"%20con%20precio%20de%20$${selectedProperty.price}.`} 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="bg-[#25D366] hover:bg-[#20BA5A] text-white px-5 py-3 rounded-lg font-bold text-[0.9rem] flex items-center gap-2 transition-all duration-300 shadow-sm whitespace-nowrap cursor-pointer hover:scale-102"
