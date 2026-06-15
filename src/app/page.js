@@ -196,6 +196,7 @@ export default function Home() {
                   <option value="Tumbaco">Tumbaco</option>
                   <option value="El Batán">El Batán</option>
                   <option value="Bellavista">Bellavista</option>
+                  <option value="La Mariscal">La Mariscal</option>
                 </select>
               </div>
 

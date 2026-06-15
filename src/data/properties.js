@@ -8,18 +8,18 @@
 export const properties = [
   {
     id: 1,
-    title: "Departamento de Lujo en La Carolina",
-    description: "Espectacular departamento moderno ubicado a pocos pasos del Parque La Carolina. Cuenta con amplios ventanales, acabados de primera, cocina de concepto abierto, excelente iluminación natural y acceso a áreas comunales premium (gimnasio, terraza panorámica, área de BBQ).",
-    price: 650,
+    title: "Amplio Departamento en La Mariscal",
+    description: "Espectacular y amplio departamento de venta en el sector de La Mariscal, a solo una cuadra de la Fiscalía. Ubicado en el 4to piso, cuenta con una excelente distribución que incluye sala y comedor espaciosos, amplia cocina, balcón privado, área de lavandería independiente y baño de servicio. El edificio ofrece recepción y seguridad 24 horas, y dos ascensores para mayor comodidad.",
+    price: 98000,
     type: "departamento",
-    transaction: "arriendo",
-    sector: "La Carolina",
-    area: 85,
-    bedrooms: 2,
+    transaction: "venta",
+    sector: "La Mariscal",
+    area: 150,
+    bedrooms: 3,
     bathrooms: 2,
     parking: 1,
-    image: "/properties/departamento_carolina.png",
-    tags: ["Vista Parque", "Seguridad 24/7", "Gimnasio", "Área de BBQ"]
+    image: "/properties/departamento_mariscal.png",
+    tags: ["Recepción 24/7", "Balcón", "Dos Ascensores", "Lavandería", "Baño de Servicio"]
   },
   {
     id: 2,
