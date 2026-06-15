@@ -132,8 +132,9 @@ export default function Home() {
       {/* --- Header / Navbar --- */}
       <header className="sticky top-0 z-50 bg-cream/95 backdrop-blur-md border-b border-border-warm transition-all duration-300">
         <div className="container mx-auto px-6 h-20 flex items-center justify-between">
-          <a href="#inicio" className="text-2xl font-bold font-title tracking-tight flex items-center gap-2 hover:opacity-90">
-            <i className="fa-solid fa-house-chimney text-brand"></i> Bienes Raíces<span className="text-brand">.</span>
+          <a href="#inicio" className="text-2xl font-bold font-title tracking-tight flex items-center gap-3 hover:opacity-90">
+            <img src="/logo.png" alt="Logo" className="h-10 w-auto object-contain rounded-md" />
+            <span>Bienes Raíces<span className="text-brand">.</span></span>
           </a>
           <nav className="hidden md:block">
             <ul className="flex items-center gap-8 text-[0.95rem] font-medium text-carbon/80">
@@ -583,8 +584,9 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 border-b border-white/10 pb-12">
             
             <div>
-              <h3 className="text-xl font-bold font-title text-white tracking-tight mb-4 flex items-center gap-2">
-                <i className="fa-solid fa-house-chimney text-brand"></i> Bienes Raíces<span className="text-brand">.</span>
+              <h3 className="text-xl font-bold font-title text-white tracking-tight mb-4 flex items-center gap-3">
+                <img src="/logo.png" alt="Logo" className="h-10 w-auto object-contain rounded-md" />
+                <span>Bienes Raíces<span className="text-brand">.</span></span>
               </h3>
             </div>
 
