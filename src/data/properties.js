@@ -1,5 +1,5 @@
 /**
- * Base de datos de Propiedades - Realtor Alexandra (Next.js)
+ * Base de datos de Propiedades - Bienes Raíces (Next.js)
  * 
  * Si deseas añadir, eliminar o modificar propiedades, puedes hacerlo en este archivo.
  * Sigue el formato de los objetos existentes.

@@ -12,9 +12,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Realtor Alexandra | Propiedades Exclusivas en Quito y Ecuador",
+  title: "Bienes Raíces | Propiedades Exclusivas en Quito y Ecuador",
   description: "Encuentra departamentos y casas en arriendo o venta en Quito y todo el Ecuador. Landing page inmobiliaria minimalista, profesional y exclusiva.",
-  keywords: ["inmobiliaria quito", "departamentos arriendo quito", "casas venta cumbaya", "propiedades ecuador", "realtor alexandra inmobiliaria"],
+  keywords: ["inmobiliaria quito", "departamentos arriendo quito", "casas venta cumbaya", "propiedades ecuador", "bienes raices inmobiliaria"],
 };
 
 export default function RootLayout({ children }) {

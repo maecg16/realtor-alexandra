@@ -127,7 +127,7 @@ export default function Home() {
       <header className="sticky top-0 z-50 bg-cream/95 backdrop-blur-md border-b border-border-warm transition-all duration-300">
         <div className="container mx-auto px-6 h-20 flex items-center justify-between">
           <a href="#inicio" className="text-2xl font-bold font-title tracking-tight flex items-center gap-2 hover:opacity-90">
-            <i className="fa-solid fa-house-chimney text-brand"></i> Realtor Alexandra<span className="text-brand">.</span>
+            <i className="fa-solid fa-house-chimney text-brand"></i> Bienes Raíces<span className="text-brand">.</span>
           </a>
           <nav className="hidden md:block">
             <ul className="flex items-center gap-8 text-[0.95rem] font-medium text-carbon/80">
@@ -156,7 +156,7 @@ export default function Home() {
               Agente Inmobiliario Betty Guerrero
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-title tracking-tight text-white leading-[1.1] mb-6 animate-fade-in-up">
-              Bienes Raíces
+              Encuentra tu próxima vivienda en Quito
             </h1>
             <p className="text-lg text-white/80 leading-relaxed max-w-2xl mx-auto animate-fade-in-up">
               Casas y departamentos exclusivos seleccionados bajo altos estándares de diseño, confort y ubicación en el Ecuador.
@@ -398,7 +398,7 @@ export default function Home() {
                 Curaduría inmobiliaria con ojo de arquitecto
               </h2>
               <p className="text-warm-gray text-[0.95rem] leading-relaxed mb-8">
-                En Realtor Alexandra no listamos miles de propiedades vacías de forma automatizada. Nos tomamos el tiempo de seleccionar únicamente espacios que destaquen por su diseño, funcionalidad, iluminación y valor real en el mercado inmobiliario de Quito.
+                En Bienes Raíces no listamos miles de propiedades vacías de forma automatizada. Nos tomamos el tiempo de seleccionar únicamente espacios que destaquen por su diseño, funcionalidad, iluminación y valor real en el mercado inmobiliario de Quito.
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -407,7 +407,7 @@ export default function Home() {
                     <i className="fa-solid fa-circle-check text-brand"></i> Selección Exclusiva
                   </h4>
                   <p className="text-warm-gray text-[0.85rem] leading-relaxed">
-                    Evaluamos cada departamento y casa garantizando que cumpla con los estándares de Realtor Alexandra de diseño.
+                    Evaluamos cada departamento y casa garantizando que cumpla con los estándares de Bienes Raíces de diseño.
                   </p>
                 </div>
                 <div className="flex flex-col gap-1.5">
@@ -587,7 +587,7 @@ export default function Home() {
             
             <div>
               <h3 className="text-xl font-bold font-title text-white tracking-tight mb-4 flex items-center gap-2">
-                <i className="fa-solid fa-house-chimney text-brand"></i> Realtor Alexandra<span className="text-brand">.</span>
+                <i className="fa-solid fa-house-chimney text-brand"></i> Bienes Raíces<span className="text-brand">.</span>
               </h3>
               <p className="text-white/60 text-[0.9rem] leading-relaxed max-w-sm">
                 La plataforma inmobiliaria curada e inteligente para Quito y Ecuador. Conectamos propietarios con hogares con diseño, alma y propósito.
@@ -657,7 +657,7 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-white/40 text-[0.8rem]">
-            <p>&copy; {new Date().getFullYear()} Realtor Alexandra. Todos los derechos reservados.</p>
+            <p>&copy; {new Date().getFullYear()} Bienes Raíces. Todos los derechos reservados.</p>
             <p>Estética Minimalista Cálida</p>
           </div>
         </div>
@@ -665,7 +665,7 @@ export default function Home() {
 
       {/* --- Botón WhatsApp Flotante --- */}
       <a 
-        href="https://wa.me/593999999999?text=Hola%20Realtor%20Alexandra,%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20sus%20propiedades%20disponibles." 
+        href="https://wa.me/593999999999?text=Hola%20Bienes%20Ra%C3%ADces,%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20sus%20propiedades%20disponibles." 
         target="_blank" 
         rel="noopener noreferrer" 
         className="fixed bottom-8 right-8 w-14 h-14 bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-full flex items-center justify-center text-2xl shadow-lg hover:scale-110 active:scale-95 z-40 transition-all duration-300"
@@ -790,7 +790,7 @@ export default function Home() {
                   <p className="text-warm-gray text-xs">Conéctate al instante con un asesor para recibir información detallada.</p>
                 </div>
                 <a 
-                  href={`https://wa.me/593999999999?text=Hola%20Realtor%20Alexandra,%20me%20interesa%20obtener%20m%C3%A1s%20detalles%20de%20la%20propiedad:%20"${encodeURIComponent(selectedProperty.title)}"%20con%20precio%20de%20$${selectedProperty.price}.`} 
+                  href={`https://wa.me/593999999999?text=Hola%20Bienes%20Ra%C3%ADces,%20me%20interesa%20obtener%20m%C3%A1s%20detalles%20de%20la%20propiedad:%20"${encodeURIComponent(selectedProperty.title)}"%20con%20precio%20de%20$${selectedProperty.price}.`} 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="bg-[#25D366] hover:bg-[#20BA5A] text-white px-5 py-3 rounded-lg font-bold text-[0.9rem] flex items-center gap-2 transition-all duration-300 shadow-sm whitespace-nowrap cursor-pointer hover:scale-102"
