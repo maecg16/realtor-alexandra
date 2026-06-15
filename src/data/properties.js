@@ -1,15 +1,14 @@
 /**
  * Base de datos de Propiedades - Bienes Raíces (Next.js)
  * 
- * Si deseas añadir, eliminar o modificar propiedades, puedes hacerlo en este archivo.
- * Sigue el formato de los objetos existentes.
+ * Este archivo contiene los 5 inmuebles reales en Quito promocionados por Betty Guerrero.
  */
 
 export const properties = [
   {
     id: 1,
-    title: "Amplio Departamento en La Mariscal",
-    description: "Espectacular y amplio departamento de venta en el sector de La Mariscal, a solo una cuadra de la Fiscalía. Ubicado en el 4to piso, cuenta con una excelente distribución que incluye sala y comedor espaciosos, amplia cocina, balcón privado, área de lavandería independiente y baño de servicio. El edificio ofrece recepción y seguridad 24 horas, y dos ascensores para mayor comodidad.",
+    title: "Espacioso Departamento en La Mariscal",
+    description: "Espectacular y amplio departamento en venta en el sector de La Mariscal, a solo una cuadra de la Fiscalía. Ubicado en el 4to piso, cuenta con una excelente distribución que incluye 3 dormitorios, 2 baños completos, área de lavandería, balcón privado, amplia cocina, sala y comedor espaciosos, 1 parqueadero y baño de servicio. El edificio ofrece dos ascensores, recepción 24 horas y seguridad permanente. Área habitable de 150 m². Valor de venta negociable.",
     price: 98000,
     type: "departamento",
     transaction: "venta",
@@ -18,82 +17,123 @@ export const properties = [
     bedrooms: 3,
     bathrooms: 2,
     parking: 1,
-    image: "/properties/departamento_mariscal.png",
+    image: "/properties/la_mariscal_1.jpeg",
+    images: [
+      "/properties/la_mariscal_1.jpeg",
+      "/properties/la_mariscal_2.jpeg",
+      "/properties/la_mariscal_3.jpeg",
+      "/properties/la_mariscal_4.jpeg",
+      "/properties/la_mariscal_5.jpeg",
+      "/properties/la_mariscal_6.jpeg",
+      "/properties/la_mariscal_7.jpeg",
+      "/properties/la_mariscal_8.jpeg",
+      "/properties/la_mariscal_9.jpeg",
+      "/properties/la_mariscal_10.jpeg",
+      "/properties/la_mariscal_11.jpeg",
+      "/properties/la_mariscal_12.jpeg"
+    ],
     tags: ["Recepción 24/7", "Balcón", "Dos Ascensores", "Lavandería", "Baño de Servicio"]
   },
   {
     id: 2,
-    title: "Moderna Casa de Campo en Cumbayá",
-    description: "Exclusiva residencia de estilo minimalista con detalles en madera y piedra, ubicada en una de las mejores urbanizaciones privadas de Cumbayá. Posee un amplio jardín privado, porche con chimenea exterior, amplias habitaciones con baño privado y cocina equipada de gama alta.",
-    price: 320000,
+    title: "Amplia Residencia de Tres Niveles en Cotocollao",
+    description: "Espectacular y espaciosa casa de tres niveles en renta en el sector de Cotocollao, muy cercana a la Urbanización El Condado. Cuenta con 590 m² de construcción y 540 m² de terreno. Ofrece 7 amplias habitaciones, 2 salas grandes, jardín, área de BBQ y 2 parqueaderos cómodos. Actualmente está completamente adecuada y lista para funcionar como residencia de adultos mayores o para grandes proyectos institucionales o familiares.",
+    price: 1500,
     type: "casa",
-    transaction: "venta",
-    sector: "Cumbayá",
-    area: 280,
-    bedrooms: 3,
-    bathrooms: 4,
-    parking: 3,
-    image: "/properties/casa_cumbaya.png",
-    tags: ["Jardín Privado", "Porche", "Urbanización Cerrada", "Acabados de Lujo"]
+    transaction: "arriendo",
+    sector: "Cotocollao",
+    area: 590,
+    bedrooms: 7,
+    bathrooms: 5,
+    parking: 2,
+    image: "/properties/cotocollao_1.jpeg",
+    images: [
+      "/properties/cotocollao_1.jpeg",
+      "/properties/cotocollao_2.jpeg",
+      "/properties/cotocollao_3.jpeg",
+      "/properties/cotocollao_4.jpeg",
+      "/properties/cotocollao_5.jpeg",
+      "/properties/cotocollao_6.jpeg",
+      "/properties/cotocollao_7.jpeg",
+      "/properties/cotocollao_8.jpeg",
+      "/properties/cotocollao_9.jpeg",
+      "/properties/cotocollao_10.jpeg",
+      "/properties/cotocollao_11.jpeg",
+      "/properties/cotocollao_12.jpeg"
+    ],
+    tags: ["Jardín", "Área BBQ", "Ideal Residencia", "3 Niveles", "Cerca a El Condado"]
   },
   {
     id: 3,
-    title: "Suite Ejecutiva en González Suárez",
-    description: "Elegante suite amoblada en la cotizada zona de la González Suárez. Perfecta para profesionales o parejas. Cuenta con una maravillosa vista al valle de Guápulo, cocina equipada, lavandería interna y amenidades en el edificio como piscina temperada y guardianía permanente.",
-    price: 550,
+    title: "Moderno Departamento con Vista en Quito Tenis",
+    description: "Excelente departamento en venta en el cotizado sector de Quito Tenis. Ubicado en el 7mo piso con una hermosa vista. Cuenta con 3 dormitorios, el dormitorio máster con baño propio y un baño completo que funciona también como baño social. Dispone de dos parqueaderos paralelos (uno al lado del otro) en el subsuelo dos y una bodega privada. El edificio tiene 8 años de antigüedad y ofrece excelentes áreas comunales como gimnasio equipado y área de BBQ. Todo el sistema del departamento es eléctrico, incluyendo el calefón. Valor de la alícuota: $170.",
+    price: 160000,
     type: "departamento",
-    transaction: "arriendo",
-    sector: "González Suárez",
-    area: 60,
-    bedrooms: 1,
-    bathrooms: 1.5,
-    parking: 1,
-    image: "/properties/suite_gonzalez.png",
-    tags: ["Vista al Valle", "Amoblado", "Piscina", "Excelente Ubicación"]
+    transaction: "venta",
+    sector: "Quito Tenis",
+    area: 130,
+    bedrooms: 3,
+    bathrooms: 2,
+    parking: 2,
+    image: "/properties/quito_tenis_1.jpeg",
+    images: [
+      "/properties/quito_tenis_1.jpeg",
+      "/properties/quito_tenis_2.jpeg",
+      "/properties/quito_tenis_3.jpeg",
+      "/properties/quito_tenis_4.jpeg",
+      "/properties/quito_tenis_5.jpeg",
+      "/properties/quito_tenis_6.jpeg",
+      "/properties/quito_tenis_7.jpeg",
+      "/properties/quito_tenis_8.jpeg",
+      "/properties/quito_tenis_9.jpeg"
+    ],
+    tags: ["Gimnasio", "Área BBQ", "Piso Alto con Vista", "Bodega", "Doble Parqueadero"]
   },
   {
     id: 4,
-    title: "Hermosa Casa Familiar en Tumbaco",
-    description: "Hermosa casa de dos plantas en conjunto residencial de Tumbaco. Disfruta de un clima cálido todo el año, seguridad integrada, patio posterior ideal para mascotas y niños, sala de estar familiar, estudio independiente y excelente conectividad a la Ruta Viva.",
-    price: 245000,
+    title: "Exclusiva Residencia Multinivel en El Bosque",
+    description: "Imponente casa de 4 niveles y subniveles internos con un área de construcción de 530 m², ubicada en el distinguido sector de El Bosque. Cuenta con 4 dormitorios amplios, 3 baños completos, 2 baños sociales, cocina con alacena y área para desayunador independiente, sala de TV acogedora, estudio privado, patios internos con encanto natural, 2 terrazas accesibles con excelente vista y 3 parqueaderos. Incluye cuarto y baño de servicio (empleada), bodega espaciosa, cisterna y un basement multiusos con su propio baño. En el primer piso de la propiedad, dispone de un área ideal para oficinas o suite con entrada completamente independiente. Propiedad con 33 años de antigüedad en perfectas condiciones de mantenimiento. Valor negociable.",
+    price: 350000,
     type: "casa",
     transaction: "venta",
-    sector: "Tumbaco",
-    area: 195,
-    bedrooms: 3,
-    bathrooms: 2.5,
-    parking: 2,
-    image: "/properties/casa_tumbaco.png",
-    tags: ["Patio", "Estudio", "Cerca a Ruta Viva", "Pet Friendly"]
+    sector: "El Bosque",
+    area: 530,
+    bedrooms: 4,
+    bathrooms: 5,
+    parking: 3,
+    image: "/properties/bosque_1.jpeg",
+    images: [
+      "/properties/bosque_1.jpeg",
+      "/properties/bosque_2.jpeg",
+      "/properties/bosque_3.jpeg",
+      "/properties/bosque_4.jpeg",
+      "/properties/bosque_5.jpeg"
+    ],
+    tags: ["Oficina/Suite Independiente", "2 Terrazas", "Basement Multiusos", "Cisterna", "Patios Internos"]
   },
   {
     id: 5,
-    title: "Departamento Familiar en El Batán",
-    description: "Espacioso departamento remodelado en el sector de El Batán. Ubicación residencial muy tranquila, cerca de centros comerciales, colegios y transporte. Tiene sala-comedor muy amplia, dormitorio máster con vestidor, baño de servicio y bodega independiente.",
-    price: 165000,
+    title: "Luminoso Departamento junto al Redondel del Ciclista",
+    description: "Excelente departamento en venta en el sector del Redondel del Ciclista, cercano a la UDLA. Tiene 96 m² de área habitable que sumando 2 parqueaderos cómodos y bodega da un total de 120 m² de área útil. Cuenta con 2 dormitorios amplios, cada uno con su baño privado completo, más un baño social. El área social integra la cocina, la sala y el comedor en un solo ambiente abierto y funcional. Ubicado en el 2do piso, el edificio tiene 15 años de construcción y está sumamente bien mantenido. Alícuota muy económica de $70. Precio de venta negociable.",
+    price: 115000,
     type: "departamento",
     transaction: "venta",
-    sector: "El Batán",
-    area: 130,
-    bedrooms: 3,
+    sector: "Redondel del Ciclista",
+    area: 96,
+    bedrooms: 2,
     bathrooms: 2.5,
     parking: 2,
-    image: "/properties/departamento_batan.png",
-    tags: ["Remodelado", "Bodega", "Zona Residencial", "Ascensor"]
-  },
-  {
-    id: 6,
-    title: "Penthouse de Estilo Nórdico en Bellavista",
-    description: "Exclusivo penthouse de diseño minimalista nórdico con una vista panorámica inigualable de 180 grados de la ciudad de Quito. Cuenta con una espectacular terraza privada de 30m², acabados en madera clara, ventanales de piso a techo y ascensor directo al departamento.",
-    price: 980,
-    type: "departamento",
-    transaction: "arriendo",
-    sector: "Bellavista",
-    area: 115,
-    bedrooms: 2,
-    bathrooms: 2,
-    parking: 2,
-    image: "/properties/penthouse_bellavista.png",
-    tags: ["Terraza Privada", "Vista Panorámica", "Estilo Nórdico", "Ascensor Directo"]
+    image: "/properties/ciclista_1.jpeg",
+    images: [
+      "/properties/ciclista_1.jpeg",
+      "/properties/ciclista_2.jpeg",
+      "/properties/ciclista_3.jpeg",
+      "/properties/ciclista_4.jpeg",
+      "/properties/ciclista_5.jpeg",
+      "/properties/ciclista_6.jpeg",
+      "/properties/ciclista_7.jpeg",
+      "/properties/ciclista_8.jpeg"
+    ],
+    tags: ["Baño en cada Hab.", "Estilo Integrado", "Bodega", "Excelente Ubicación", "Bajo Costo Alícuota"]
   }
 ];

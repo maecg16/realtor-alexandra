@@ -19,6 +19,7 @@ export default function Home() {
 
   // Propiedad seleccionada para el modal
   const [selectedProperty, setSelectedProperty] = useState(null);
+  const [currentImageIdx, setCurrentImageIdx] = useState(0);
 
   // Estados del Formulario de Contacto
   const [formData, setFormData] = useState({
@@ -67,6 +68,11 @@ export default function Home() {
   useEffect(() => {
     applyFilters();
   }, [searchType, searchSector, searchTransaction, searchPrice, activeTab]);
+
+  // Restablecer el índice de imagen activa al cambiar de propiedad
+  useEffect(() => {
+    setCurrentImageIdx(0);
+  }, [selectedProperty]);
 
   // Restablecer todos los filtros
   const handleResetFilters = () => {
@@ -190,13 +196,11 @@ export default function Home() {
                   className="w-full bg-cream border border-border-warm rounded-lg px-4 py-2.5 text-[0.9rem] focus:border-brand focus:ring-3 focus:ring-brand/10 transition-all duration-200 outline-none text-carbon"
                 >
                   <option value="todos">Todos los sectores</option>
-                  <option value="La Carolina">La Carolina</option>
-                  <option value="Cumbayá">Cumbayá</option>
-                  <option value="González Suárez">González Suárez</option>
-                  <option value="Tumbaco">Tumbaco</option>
-                  <option value="El Batán">El Batán</option>
-                  <option value="Bellavista">Bellavista</option>
                   <option value="La Mariscal">La Mariscal</option>
+                  <option value="Cotocollao">Cotocollao</option>
+                  <option value="Quito Tenis">Quito Tenis</option>
+                  <option value="El Bosque">El Bosque</option>
+                  <option value="Redondel del Ciclista">Redondel del Ciclista</option>
                 </select>
               </div>
 
@@ -223,11 +227,11 @@ export default function Home() {
                   className="w-full bg-cream border border-border-warm rounded-lg px-4 py-2.5 text-[0.9rem] focus:border-brand focus:ring-3 focus:ring-brand/10 transition-all duration-200 outline-none text-carbon"
                 >
                   <option value="todos">Sin límite</option>
-                  <option value="500">Hasta $500/mes</option>
-                  <option value="1000">Hasta $1000/mes</option>
-                  <option value="170000">Hasta $170,000 (Venta)</option>
-                  <option value="250000">Hasta $250,000 (Venta)</option>
-                  <option value="350000">Hasta $350,000 (Venta)</option>
+                  <option value="2000">Hasta $2,000 / mes</option>
+                  <option value="100000">Hasta $100,000 (Venta)</option>
+                  <option value="120000">Hasta $120,000 (Venta)</option>
+                  <option value="180000">Hasta $180,000 (Venta)</option>
+                  <option value="400000">Hasta $400,000 (Venta)</option>
                 </select>
               </div>
 
@@ -595,50 +599,61 @@ export default function Home() {
             </div>
 
             <div>
-              <h4 className="font-semibold text-[1.05rem] text-white mb-4">Sectores Populares</h4>
+              <h4 className="font-semibold text-[1.05rem] text-white mb-4">Sectores</h4>
               <ul className="flex flex-col gap-2.5 text-[0.9rem] text-white/60">
                 <li>
                   <button 
                     onClick={() => {
-                      setSearchSector("La Carolina");
+                      setSearchSector("La Mariscal");
                       document.getElementById("propiedades").scrollIntoView();
                     }}
                     className="hover:text-brand transition-colors cursor-pointer text-left"
                   >
-                    La Carolina
+                    La Mariscal
                   </button>
                 </li>
                 <li>
                   <button 
                     onClick={() => {
-                      setSearchSector("Cumbayá");
+                      setSearchSector("Cotocollao");
                       document.getElementById("propiedades").scrollIntoView();
                     }}
                     className="hover:text-brand transition-colors cursor-pointer text-left"
                   >
-                    Cumbayá
+                    Cotocollao
                   </button>
                 </li>
                 <li>
                   <button 
                     onClick={() => {
-                      setSearchSector("Tumbaco");
+                      setSearchSector("Quito Tenis");
                       document.getElementById("propiedades").scrollIntoView();
                     }}
                     className="hover:text-brand transition-colors cursor-pointer text-left"
                   >
-                    Tumbaco
+                    Quito Tenis
                   </button>
                 </li>
                 <li>
                   <button 
                     onClick={() => {
-                      setSearchSector("González Suárez");
+                      setSearchSector("El Bosque");
                       document.getElementById("propiedades").scrollIntoView();
                     }}
                     className="hover:text-brand transition-colors cursor-pointer text-left"
                   >
-                    González Suárez
+                    El Bosque
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => {
+                      setSearchSector("Redondel del Ciclista");
+                      document.getElementById("propiedades").scrollIntoView();
+                    }}
+                    className="hover:text-brand transition-colors cursor-pointer text-left"
+                  >
+                    Redondel del Ciclista
                   </button>
                 </li>
               </ul>
@@ -683,17 +698,60 @@ export default function Home() {
               <i className="fa-solid fa-xmark"></i>
             </button>
 
-            {/* Imagen Principal */}
-            <div className="h-[350px] relative bg-lino">
+            {/* Imagen Principal o Carrusel */}
+            <div className="h-[350px] md:h-[450px] relative bg-lino group/carousel overflow-hidden">
+              {/* Carrusel Controls */}
+              {selectedProperty.images && selectedProperty.images.length > 1 && (
+                <>
+                  {/* Flecha Izquierda */}
+                  <button
+                    onClick={() => setCurrentImageIdx((prev) => (prev === 0 ? selectedProperty.images.length - 1 : prev - 1))}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 hover:bg-white text-carbon flex items-center justify-center shadow-md hover:scale-105 transition-all duration-200 z-20 cursor-pointer opacity-0 group-hover/carousel:opacity-100"
+                    aria-label="Imagen anterior"
+                  >
+                    <i className="fa-solid fa-chevron-left text-sm"></i>
+                  </button>
+                  {/* Flecha Derecha */}
+                  <button
+                    onClick={() => setCurrentImageIdx((prev) => (prev === selectedProperty.images.length - 1 ? 0 : prev + 1))}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 hover:bg-white text-carbon flex items-center justify-center shadow-md hover:scale-105 transition-all duration-200 z-20 cursor-pointer opacity-0 group-hover/carousel:opacity-100"
+                    aria-label="Siguiente imagen"
+                  >
+                    <i className="fa-solid fa-chevron-right text-sm"></i>
+                  </button>
+
+                  {/* Contador */}
+                  <span className="absolute top-4 left-4 bg-carbon/70 text-white text-xs px-2.5 py-1 rounded-md z-15 backdrop-blur-sm">
+                    {currentImageIdx + 1} / {selectedProperty.images.length}
+                  </span>
+                </>
+              )}
+
+              {/* Imagen activa */}
               <img 
-                src={selectedProperty.image} 
+                src={selectedProperty.images ? selectedProperty.images[currentImageIdx] : selectedProperty.image} 
                 alt={selectedProperty.title} 
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transition-all duration-500 ease-in-out"
               />
               <span className={`absolute bottom-4 left-6 px-3.5 py-1.5 rounded-md text-[0.8rem] font-bold uppercase tracking-wider text-white z-10 ${selectedProperty.transaction === "arriendo" ? "bg-forest" : "bg-brand"}`}>
                 {selectedProperty.transaction === "arriendo" ? "Arriendo" : "Venta"}
               </span>
             </div>
+
+            {/* Miniaturas (Thumbnails) */}
+            {selectedProperty.images && selectedProperty.images.length > 1 && (
+              <div className="flex gap-2 p-4 bg-lino border-b border-border-warm overflow-x-auto scrollbar-thin scrollbar-thumb-brand">
+                {selectedProperty.images.map((img, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setCurrentImageIdx(idx)}
+                    className={`relative w-20 h-14 rounded-lg overflow-hidden flex-shrink-0 border-2 transition-all duration-200 cursor-pointer ${currentImageIdx === idx ? "border-brand scale-98 shadow-md" : "border-transparent opacity-70 hover:opacity-100"}`}
+                  >
+                    <img src={img} alt={`Miniatura ${idx + 1}`} className="w-full h-full object-cover" />
+                  </button>
+                ))}
+              </div>
+            )}
 
             {/* Cuerpo del Modal */}
             <div className="p-8">
