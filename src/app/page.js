@@ -260,7 +260,7 @@ export default function Home() {
           <div className="text-center max-w-2xl mx-auto mb-16">
             <h2 className="text-3xl font-bold font-title tracking-tight mb-4 text-carbon">Propiedades Destacadas</h2>
             <p className="text-[0.95rem] text-warm-gray">
-              Explora nuestra colección curada de inmuebles disponibles. Filtra de acuerdo a tus necesidades específicas.
+              Explora nuestra colección de inmuebles disponibles y filtra de acuerdo a tus necesidades específicas.
             </p>
           </div>
 
