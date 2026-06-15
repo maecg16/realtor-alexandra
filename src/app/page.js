@@ -401,19 +401,19 @@ export default function Home() {
                 Quiénes somos
               </span>
               <h2 className="text-3xl md:text-4xl font-bold font-title tracking-tight text-carbon leading-[1.2] mb-6">
-                Curaduría inmobiliaria con ojo de arquitecto
+                10 años conectando personas con su próximo hogar en Quito
               </h2>
               <p className="text-warm-gray text-[0.95rem] leading-relaxed mb-8">
-                En Bienes Raíces no listamos miles de propiedades vacías de forma automatizada. Nos tomamos el tiempo de seleccionar únicamente espacios que destaquen por su diseño, funcionalidad, iluminación y valor real en el mercado inmobiliario de Quito.
+                Con más de 10 años de experiencia en arriendos y ventas en Quito y los valles, acompañamos a cada cliente de forma personalizada durante todo el proceso. Conocemos el mercado de cerca y trabajamos para que encontrar o arrendar tu propiedad sea una experiencia clara, segura y sin contratiempos.
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-1.5">
                   <h4 className="font-semibold text-[1.05rem] flex items-center gap-2 text-carbon">
-                    <i className="fa-solid fa-circle-check text-brand"></i> Selección Exclusiva
+                    <i className="fa-solid fa-circle-check text-brand"></i> Experiencia Comprobada
                   </h4>
                   <p className="text-warm-gray text-[0.85rem] leading-relaxed">
-                    Evaluamos cada departamento y casa garantizando que cumpla con los estándares de Bienes Raíces de diseño.
+                    Más de una década trabajando en el mercado inmobiliario de Quito nos permite asesorarte con conocimiento real del sector, los precios y las zonas.
                   </p>
                 </div>
                 <div className="flex flex-col gap-1.5">
@@ -421,23 +421,23 @@ export default function Home() {
                     <i className="fa-solid fa-comments text-brand"></i> Trato Transparente
                   </h4>
                   <p className="text-warm-gray text-[0.85rem] leading-relaxed">
-                    Sin intermediaciones confusas ni trabas administrativas. Facilitamos una negociación directa y ágil.
+                    Te acompañamos en cada paso, desde la primera visita hasta la firma del contrato.
                   </p>
                 </div>
                 <div className="flex flex-col gap-1.5">
                   <h4 className="font-semibold text-[1.05rem] flex items-center gap-2 text-carbon">
-                    <i className="fa-solid fa-compass text-brand"></i> Enfoque en Quito
+                    <i className="fa-solid fa-compass text-brand"></i> Enfoque en Quito y los Valles
                   </h4>
                   <p className="text-warm-gray text-[0.85rem] leading-relaxed">
-                    Especialistas en la plusvalía, clima y particularidades del norte, centro y los valles de la capital.
+                    Conocemos en profundidad cada sector: Quito norte, centro, Cumbayá, Tumbaco y los valles. Eso marca la diferencia al momento de asesorarte.
                   </p>
                 </div>
                 <div className="flex flex-col gap-1.5">
                   <h4 className="font-semibold text-[1.05rem] flex items-center gap-2 text-carbon">
-                    <i className="fa-solid fa-leaf text-brand"></i> Estética Orgánica
+                    <i className="fa-solid fa-star text-brand"></i> Servicio de Calidad
                   </h4>
                   <p className="text-warm-gray text-[0.85rem] leading-relaxed">
-                    Inmuebles que priorizan la luz natural, la armonía espacial y el uso de materiales nobles.
+                    Cada cliente es único. Nos tomamos el tiempo de entender lo que buscas para ofrecerte opciones que realmente se ajusten a tus necesidades y presupuesto.
                   </p>
                 </div>
               </div>
