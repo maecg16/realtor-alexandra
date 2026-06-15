@@ -390,7 +390,7 @@ export default function Home() {
             
             <div className="h-[450px] rounded-2xl overflow-hidden shadow-lg border border-border-warm relative">
               <img 
-                src="/quienes_somos.png" 
+                src="/quienes_somos_2.png" 
                 alt="Quiénes Somos - Bienes Raíces Betty Guerrero" 
                 className="w-full h-full object-cover"
               />
