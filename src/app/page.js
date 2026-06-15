@@ -166,7 +166,7 @@ export default function Home() {
               Encuentra tu próxima vivienda en Quito
             </h1>
             <p className="text-lg text-white/80 leading-relaxed max-w-2xl mx-auto animate-fade-in-up">
-              Casas y departamentos exclusivos seleccionados bajo altos estándares de diseño, confort y ubicación en el Ecuador.
+              Te ayudamos a comprar, vender o arrendar tu próxima propiedad en Quito y los valles.
             </p>
           </div>
 
