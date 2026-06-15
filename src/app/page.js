@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { properties } from "@/data/properties";
+import { supabase } from "@/lib/supabase";
 
 export default function Home() {
   // Estados para filtros
@@ -87,17 +88,36 @@ export default function Home() {
     }));
   };
 
-  // Simular envío de formulario
-  const handleFormSubmit = (e) => {
+  // Enviar formulario a la base de datos de Supabase
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      const { error } = await supabase
+        .from("contactos_landing")
+        .insert([
+          {
+            nombre: formData.name,
+            telefono: formData.phone,
+            email: formData.email,
+            mensaje: formData.message
+          }
+        ]);
+
+      if (error) {
+        throw error;
+      }
+
       setFormSubmitted(true);
       setFormData({ name: "", phone: "", email: "", message: "" });
       // Reset success message after 5 seconds
       setTimeout(() => setFormSubmitted(false), 5000);
-    }, 1500);
+    } catch (err) {
+      console.error("Error al enviar a Supabase:", err.message);
+      alert("Ocurrió un error al enviar tu mensaje. Por favor, intenta nuevamente.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -133,10 +153,10 @@ export default function Home() {
         <div className="container mx-auto px-6 max-w-6xl relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
             <span className="text-brand brightness-125 uppercase tracking-widest text-[0.8rem] font-bold block mb-4 animate-fade-in-up">
-              Curaduría Inmobiliaria
+              Agente Inmobiliario Betty Guerrero
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-title tracking-tight text-white leading-[1.1] mb-6 animate-fade-in-up">
-              Encuentra tu próxima vivienda en Quito
+              Bienes Raíces
             </h1>
             <p className="text-lg text-white/80 leading-relaxed max-w-2xl mx-auto animate-fade-in-up">
               Casas y departamentos exclusivos seleccionados bajo altos estándares de diseño, confort y ubicación en el Ecuador.
