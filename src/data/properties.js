@@ -135,5 +135,31 @@ export const properties = [
       "/properties/ciclista_8.jpeg"
     ],
     tags: ["Baño en cada Hab.", "Estilo Integrado", "Bodega", "Excelente Ubicación", "Bajo Costo Alícuota"]
+  },
+  {
+    id: 6,
+    title: "Cómodo Departamento en Renta - Monteserrín",
+    description: "Excelente y cómodo departamento en renta, ubicado en el exclusivo sector de Monteserrín, a pocos pasos de la UDLA (Universidad de las Américas). Cuenta con 2 dormitorios, 1 baño completo, 1 baño social, garaje privado y un acogedor patio interno ideal para el esparcimiento. Perfecto para estudiantes, profesionales o familias pequeñas que buscan comodidad, seguridad y una excelente ubicación.",
+    price: 480,
+    type: "departamento",
+    transaction: "arriendo",
+    sector: "Monteserrín",
+    area: 80,
+    bedrooms: 2,
+    bathrooms: 1.5,
+    parking: 1,
+    image: "/properties/monteserrin1.jpeg",
+    images: [
+      "/properties/monteserrin1.jpeg",
+      "/properties/monteserrin2.jpeg",
+      "/properties/monteserrin3.jpeg",
+      "/properties/monteserrin4.jpeg",
+      "/properties/monteserrin5.jpeg",
+      "/properties/monteserrin6.jpeg",
+      "/properties/monteserrin7.jpeg",
+      "/properties/monteserrin8.jpeg",
+      "/properties/monteserrin9.jpeg"
+    ],
+    tags: ["A pasos de la UDLA", "Patio Interno", "Garaje", "Seguro"]
   }
 ];

@@ -202,6 +202,7 @@ export default function Home() {
                   <option value="Quito Tenis">Quito Tenis</option>
                   <option value="El Bosque">El Bosque</option>
                   <option value="Redondel del Ciclista">Redondel del Ciclista</option>
+                  <option value="Monteserrín">Monteserrín</option>
                 </select>
               </div>
 
@@ -656,6 +657,17 @@ export default function Home() {
                     className="hover:text-brand transition-colors cursor-pointer text-left"
                   >
                     Redondel del Ciclista
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => {
+                      setSearchSector("Monteserrín");
+                      document.getElementById("propiedades").scrollIntoView();
+                    }}
+                    className="hover:text-brand transition-colors cursor-pointer text-left"
+                  >
+                    Monteserrín
                   </button>
                 </li>
               </ul>
