@@ -107,12 +107,9 @@ export default function Home() {
             <span className="inline-block bg-brand/90 text-white px-4 py-1.5 rounded-full text-[0.8rem] font-bold uppercase tracking-widest mb-4 shadow-sm animate-fade-in-up">
               Betty Guerrero · Corredora de Bienes Raíces
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-title tracking-tight text-white leading-[1.1] mb-4 animate-fade-in-up">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-title tracking-tight text-white leading-[1.1] mb-6 animate-fade-in-up">
               Encuentra tu próxima propiedad en Quito
             </h1>
-            <p className="text-base md:text-lg text-white/90 font-medium mb-3 animate-fade-in-up">
-              Licencia Profesional ACBIRP 695
-            </p>
             <p className="text-sm md:text-base text-white/80 leading-relaxed max-w-2xl mx-auto animate-fade-in-up">
               Te asesoro con experiencia y transparencia para comprar, vender o arrendar tu inmueble en Quito y sus valles.
             </p>
@@ -339,7 +336,7 @@ export default function Home() {
             
             <div className="h-[480px] rounded-2xl overflow-hidden shadow-lg border border-border-warm relative group">
               <img 
-                src="/quienes_somos.png" 
+                src="/sobre_mi.png" 
                 alt="Betty Guerrero - Corredora de Bienes Raíces" 
                 className="w-full h-full object-cover"
               />
@@ -415,9 +412,6 @@ export default function Home() {
               {/* Información izquierda */}
               <div className="lg:col-span-5 flex flex-col justify-between">
                 <div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand/10 text-brand font-semibold text-xs rounded-full mb-3 border border-brand/20">
-                    <i className="fa-solid fa-id-card"></i> Licencia ACBIRP 695
-                  </div>
                   <h3 className="text-3xl font-bold font-title text-carbon tracking-tight mb-4">¿Deseas consultar o publicar una propiedad?</h3>
                   <p className="text-warm-gray text-[0.95rem] leading-relaxed">
                     Contáctame directamente por WhatsApp o teléfono. Estaré encantada de responder tus preguntas y agendar una visita.
@@ -432,7 +426,6 @@ export default function Home() {
                     <div>
                       <p className="text-[0.7rem] uppercase font-bold text-warm-gray tracking-wider">Corredora de Bienes Raíces</p>
                       <p className="font-bold text-carbon text-[1rem]">Betty Guerrero</p>
-                      <p className="text-xs text-brand font-medium">Licencia Profesional ACBIRP 695</p>
                     </div>
                   </div>
 
@@ -510,7 +503,7 @@ export default function Home() {
                 </div>
               </div>
               <p className="text-xs text-white/70 leading-relaxed">
-                Corredora de Bienes Raíces Licencia Profesional ACBIRP 695.<br />
+                Corredora de Bienes Raíces.<br />
                 Asesoría inmobiliaria en Quito y los valles.
               </p>
             </div>
@@ -600,7 +593,7 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-white/40 text-[0.8rem]">
-            <p>&copy; {new Date().getFullYear()} Betty Guerrero - Corredora de Bienes Raíces Licencia Profesional ACBIRP 695.</p>
+            <p>&copy; {new Date().getFullYear()} Betty Guerrero - Corredora de Bienes Raíces. Todos los derechos reservados.</p>
           </div>
         </div>
       </footer>
