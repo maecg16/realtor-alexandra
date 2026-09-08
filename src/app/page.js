@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { properties } from "@/data/properties";
-import { supabase } from "@/lib/supabase";
 
 export default function Home() {
   // Estados para filtros
@@ -20,16 +19,6 @@ export default function Home() {
   // Propiedad seleccionada para el modal
   const [selectedProperty, setSelectedProperty] = useState(null);
   const [currentImageIdx, setCurrentImageIdx] = useState(0);
-
-  // Estados del Formulario de Contacto
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    message: ""
-  });
-  const [formSubmitted, setFormSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Función unificada para aplicar los filtros (Buscador + Pestañas)
   const applyFilters = () => {
@@ -83,70 +72,35 @@ export default function Home() {
     setActiveTab("todos");
   };
 
-  // Manejar cambios en el formulario
-  const handleInputChange = (e) => {
-    const { id, value } = e.target;
-    // Map IDs to key names in formData
-    const key = id.replace("form-", "");
-    setFormData(prev => ({
-      ...prev,
-      [key]: value
-    }));
-  };
-
-  // Enviar formulario a la base de datos de Supabase
-  const handleFormSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    try {
-      const { error } = await supabase
-        .from("contactos_landing")
-        .insert([
-          {
-            nombre: formData.name,
-            telefono: formData.phone,
-            email: formData.email,
-            mensaje: formData.message
-          }
-        ]);
-
-      if (error) {
-        throw error;
-      }
-
-      setFormSubmitted(true);
-      setFormData({ name: "", phone: "", email: "", message: "" });
-      // Reset success message after 5 seconds
-      setTimeout(() => setFormSubmitted(false), 5000);
-    } catch (err) {
-      console.error("Error al enviar a Supabase:", err.message);
-      alert("Ocurrió un error al enviar tu mensaje. Por favor, intenta nuevamente.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
     <div className="min-h-screen bg-cream text-carbon selection:bg-brand/10 selection:text-brand">
       
       {/* --- Header / Navbar --- */}
       <header className="sticky top-0 z-50 bg-cream/95 backdrop-blur-md border-b border-border-warm transition-all duration-300">
         <div className="container mx-auto px-6 h-20 flex items-center justify-between">
-          <a href="#inicio" className="text-2xl font-bold font-title tracking-tight flex items-center gap-3 hover:opacity-90">
-            <img src="/logo.png" alt="Logo" className="h-10 w-auto object-contain rounded-md" />
-            <span>Bienes Raíces<span className="text-brand">.</span></span>
+          <a href="#inicio" className="text-xl font-bold font-title tracking-tight flex items-center gap-3 hover:opacity-90 transition-opacity">
+            <img src="/logo.jpg" alt="Betty Guerrero Bienes Raíces" className="h-12 w-auto object-contain rounded-md" />
+            <div className="flex flex-col leading-none">
+              <span className="text-lg font-bold text-carbon">Betty Guerrero</span>
+              <span className="text-[0.72rem] text-brand font-semibold tracking-wider uppercase mt-0.5">Bienes Raíces</span>
+            </div>
           </a>
           <nav className="hidden md:block">
             <ul className="flex items-center gap-8 text-[0.95rem] font-medium text-carbon/80">
               <li><a href="#inicio" className="hover:text-brand transition-colors duration-200">Inicio</a></li>
               <li><a href="#propiedades" className="hover:text-brand transition-colors duration-200">Propiedades</a></li>
-              <li><a href="#nosotros" className="hover:text-brand transition-colors duration-200">Nosotros</a></li>
+              <li><a href="#nosotros" className="hover:text-brand transition-colors duration-200">Sobre Mí</a></li>
               <li><a href="#contacto" className="hover:text-brand transition-colors duration-200">Contacto</a></li>
             </ul>
           </nav>
           <div>
-            <a href="#contacto" className="hidden sm:inline-flex px-5 py-2.5 rounded-lg border border-carbon text-carbon hover:bg-carbon hover:text-white text-[0.9rem] font-medium transition-all duration-300">
-              Agendar Cita
+            <a 
+              href="https://wa.me/593992754572?text=Hola%20Betty%20Guerrero,%20me%20gustar%C3%ADa%20agendar%20una%20consulta%20inmobiliaria."
+              target="_blank"
+              rel="noopener noreferrer" 
+              className="hidden sm:inline-flex px-5 py-2.5 rounded-lg bg-[#25D366] hover:bg-[#20BA5A] text-white text-[0.9rem] font-semibold items-center gap-2 transition-all duration-300 shadow-sm hover:scale-102"
+            >
+              <i className="fa-brands fa-whatsapp text-lg"></i> Contactar por WhatsApp
             </a>
           </div>
         </div>
@@ -155,18 +109,21 @@ export default function Home() {
       {/* --- Hero Section --- */}
       <section id="inicio" className="relative pt-20 pb-28 md:pt-32 md:pb-40 bg-[url('/properties/hero_banner.png')] bg-cover bg-center overflow-hidden">
         {/* Dark overlay for contrast */}
-        <div className="absolute inset-0 bg-black/50 z-0"></div>
+        <div className="absolute inset-0 bg-black/55 z-0"></div>
         
         <div className="container mx-auto px-6 max-w-6xl relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-            <span className="text-brand brightness-125 uppercase tracking-widest text-[0.8rem] font-bold block mb-4 animate-fade-in-up">
-              Agente Inmobiliario Betty Guerrero
+            <span className="inline-block bg-brand/90 text-white px-4 py-1.5 rounded-full text-[0.8rem] font-bold uppercase tracking-widest mb-4 shadow-sm animate-fade-in-up">
+              Betty Guerrero · Corredora de Bienes Raíces
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-title tracking-tight text-white leading-[1.1] mb-6 animate-fade-in-up">
-              Encuentra tu próxima vivienda en Quito
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-title tracking-tight text-white leading-[1.1] mb-4 animate-fade-in-up">
+              Encuentra tu próxima propiedad en Quito
             </h1>
-            <p className="text-lg text-white/80 leading-relaxed max-w-2xl mx-auto animate-fade-in-up">
-              Te ayudamos a comprar, vender o arrendar tu próxima propiedad en Quito y los valles.
+            <p className="text-base md:text-lg text-white/90 font-medium mb-3 animate-fade-in-up">
+              Licencia Profesional ACBIRP 695
+            </p>
+            <p className="text-sm md:text-base text-white/80 leading-relaxed max-w-2xl mx-auto animate-fade-in-up">
+              Te asesoro con experiencia y transparencia para comprar, vender o arrendar tu inmueble en Quito y sus valles.
             </p>
           </div>
 
@@ -384,61 +341,71 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- Sección Sobre Nosotros --- */}
+      {/* --- Sección Sobre Mí --- */}
       <section id="nosotros" className="py-20 bg-lino">
         <div className="container mx-auto px-6 max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             
-            <div className="h-[450px] rounded-2xl overflow-hidden shadow-lg border border-border-warm relative">
+            <div className="h-[480px] rounded-2xl overflow-hidden shadow-lg border border-border-warm relative group">
               <img 
                 src="/quienes_somos.png" 
-                alt="Quiénes Somos - Bienes Raíces Betty Guerrero" 
+                alt="Betty Guerrero - Corredora de Bienes Raíces" 
                 className="w-full h-full object-cover"
               />
+              <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-4 rounded-xl border border-border-warm shadow-md">
+                <p className="font-bold text-carbon text-base">Betty Guerrero</p>
+                <p className="text-xs text-brand font-semibold">Corredora de Bienes Raíces</p>
+                <p className="text-[0.78rem] text-warm-gray mt-1 flex items-center gap-1.5">
+                  <i className="fa-solid fa-id-card text-brand"></i> Licencia Profesional ACBIRP 695
+                </p>
+              </div>
             </div>
 
             <div className="flex flex-col">
-              <span className="text-brand uppercase tracking-widest text-[0.8rem] font-bold block mb-4">
-                Quiénes somos
+              <span className="text-brand uppercase tracking-widest text-[0.8rem] font-bold block mb-2">
+                Sobre Mí
               </span>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-brand/10 text-brand font-bold text-xs rounded-full w-fit mb-4 border border-brand/20">
+                <i className="fa-solid fa-award"></i> Licencia Profesional ACBIRP 695
+              </div>
               <h2 className="text-3xl md:text-4xl font-bold font-title tracking-tight text-carbon leading-[1.2] mb-6">
-                10 años conectando personas con su próximo hogar en Quito
+                Más de 10 años guiándote hacia tu hogar ideal en Quito
               </h2>
               <p className="text-warm-gray text-[0.95rem] leading-relaxed mb-8">
-                Con más de 10 años de experiencia en arriendos y ventas en Quito y los valles, acompañamos a cada cliente de forma personalizada durante todo el proceso. Conocemos el mercado de cerca y trabajamos para que encontrar o arrendar tu propiedad sea una experiencia clara, segura y sin contratiempos.
+                Soy Betty Guerrero, Corredora de Bienes Raíces con amplia trayectoria en la compra, venta y arriendo de propiedades en Quito y sus valles. Mi prioridad es ofrecerte una atención profesional, cercana y transparente, cuidando cada detalle legal y comercial para que tomes la mejor decisión con total tranquilidad.
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-1.5">
                   <h4 className="font-semibold text-[1.05rem] flex items-center gap-2 text-carbon">
-                    <i className="fa-solid fa-circle-check text-brand"></i> Experiencia Comprobada
+                    <i className="fa-solid fa-certificate text-brand"></i> Licencia Oficial
                   </h4>
                   <p className="text-warm-gray text-[0.85rem] leading-relaxed">
-                    Más de una década trabajando en el mercado inmobiliario de Quito nos permite asesorarte con conocimiento real del sector, los precios y las zonas.
+                    Corredora de Bienes Raíces con Licencia Profesional ACBIRP 695, garantizando formalidad y respaldo legal en cada trámite.
                   </p>
                 </div>
                 <div className="flex flex-col gap-1.5">
                   <h4 className="font-semibold text-[1.05rem] flex items-center gap-2 text-carbon">
-                    <i className="fa-solid fa-comments text-brand"></i> Trato Transparente
+                    <i className="fa-solid fa-user-check text-brand"></i> Atención Directa
                   </h4>
                   <p className="text-warm-gray text-[0.85rem] leading-relaxed">
-                    Te acompañamos en cada paso, desde la primera visita hasta la firma del contrato.
+                    Trato personal y dedicado sin intermediarios, adaptándome exactamente a lo que buscas.
                   </p>
                 </div>
                 <div className="flex flex-col gap-1.5">
                   <h4 className="font-semibold text-[1.05rem] flex items-center gap-2 text-carbon">
-                    <i className="fa-solid fa-compass text-brand"></i> Enfoque en Quito y los Valles
+                    <i className="fa-solid fa-compass text-brand"></i> Conocimiento del Mercado
                   </h4>
                   <p className="text-warm-gray text-[0.85rem] leading-relaxed">
-                    Conocemos en profundidad cada sector: Quito norte, centro, Cumbayá, Tumbaco y los valles. Eso marca la diferencia al momento de asesorarte.
+                    Especialista en los principales sectores urbanos y valles de Quito (La Mariscal, Cotocollao, Quito Tenis, El Bosque, Monteserrín).
                   </p>
                 </div>
                 <div className="flex flex-col gap-1.5">
                   <h4 className="font-semibold text-[1.05rem] flex items-center gap-2 text-carbon">
-                    <i className="fa-solid fa-star text-brand"></i> Servicio de Calidad
+                    <i className="fa-solid fa-shield-halved text-brand"></i> Seguridad y Confianza
                   </h4>
                   <p className="text-warm-gray text-[0.85rem] leading-relaxed">
-                    Cada cliente es único. Nos tomamos el tiempo de entender lo que buscas para ofrecerte opciones que realmente se ajusten a tus necesidades y presupuesto.
+                    Procesos transparentes y acompañamiento constante hasta el cierre exitoso de la negociación.
                   </p>
                 </div>
               </div>
@@ -448,130 +415,89 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- Sección de Contacto --- */}
+      {/* --- Sección de Contacto Directo --- */}
       <section id="contacto" className="py-20 bg-cream">
         <div className="container mx-auto px-6 max-w-6xl">
           <div className="bg-lino rounded-3xl border border-border-warm shadow-md p-8 md:p-12 lg:p-16">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               
               {/* Información izquierda */}
               <div className="lg:col-span-5 flex flex-col justify-between">
                 <div>
-                  <h3 className="text-3xl font-bold font-title text-carbon tracking-tight mb-4">¿Hablamos?</h3>
+                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand/10 text-brand font-semibold text-xs rounded-full mb-3 border border-brand/20">
+                    <i className="fa-solid fa-id-card"></i> Licencia ACBIRP 695
+                  </div>
+                  <h3 className="text-3xl font-bold font-title text-carbon tracking-tight mb-4">¿Deseas consultar o publicar una propiedad?</h3>
                   <p className="text-warm-gray text-[0.95rem] leading-relaxed">
-                    Escríbenos para agendar una visita o si deseas que te asesoremos a promocionar tu propiedad en Quito de manera profesional.
+                    Contáctame directamente por WhatsApp o teléfono. Estaré encantada de responder tus preguntas y agendar una visita.
                   </p>
                 </div>
 
-                <div className="flex flex-col gap-6 my-10 lg:my-0">
+                <div className="flex flex-col gap-6 my-8">
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-brand border border-border-warm shadow-sm">
-                      <i className="fa-solid fa-phone"></i>
+                    <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-brand border border-border-warm shadow-sm flex-shrink-0">
+                      <i className="fa-solid fa-user-tie text-lg"></i>
                     </div>
                     <div>
-                      <p className="text-[0.7rem] uppercase font-bold text-warm-gray tracking-wider">Teléfono / WhatsApp</p>
-                      <p className="font-semibold text-[0.95rem]">+593 99 275 4572</p>
+                      <p className="text-[0.7rem] uppercase font-bold text-warm-gray tracking-wider">Corredora de Bienes Raíces</p>
+                      <p className="font-bold text-carbon text-[1rem]">Betty Guerrero</p>
+                      <p className="text-xs text-brand font-medium">Licencia Profesional ACBIRP 695</p>
                     </div>
                   </div>
 
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-brand border border-border-warm shadow-sm">
-                      <i className="fa-solid fa-envelope"></i>
+                    <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-brand border border-border-warm shadow-sm flex-shrink-0">
+                      <i className="fa-solid fa-phone text-lg"></i>
+                    </div>
+                    <div>
+                      <p className="text-[0.7rem] uppercase font-bold text-warm-gray tracking-wider">Teléfono / WhatsApp</p>
+                      <a href="https://wa.me/593992754572" target="_blank" rel="noopener noreferrer" className="font-semibold text-[0.95rem] text-carbon hover:text-brand transition-colors">
+                        +593 99 275 4572
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-brand border border-border-warm shadow-sm flex-shrink-0">
+                      <i className="fa-solid fa-envelope text-lg"></i>
                     </div>
                     <div>
                       <p className="text-[0.7rem] uppercase font-bold text-warm-gray tracking-wider">Correo Electrónico</p>
-                      <p className="font-semibold text-[0.95rem]">bgrealtor2000@gmail.com</p>
+                      <a href="mailto:bgrealtor2000@gmail.com" className="font-semibold text-[0.95rem] text-carbon hover:text-brand transition-colors">
+                        bgrealtor2000@gmail.com
+                      </a>
                     </div>
                   </div>
                 </div>
 
-                <div className="text-[0.8rem] text-warm-gray/80">
-                  Horario de atención:<br />
+                <div className="text-[0.8rem] text-warm-gray/90 bg-white/70 p-4 rounded-xl border border-border-warm">
+                  <span className="font-semibold text-carbon block mb-1">Horario de atención:</span>
                   Lunes a Miércoles: 09:00 - 18:00<br />
                   Jueves: Sin atención<br />
                   Viernes y Sábados: 09:00 - 17:00
                 </div>
               </div>
 
-              {/* Formulario derecho */}
-              <div className="lg:col-span-7 bg-white rounded-2xl border border-border-warm p-6 md:p-8">
-                <form onSubmit={handleFormSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  
-                  <div className="flex flex-col gap-1.5">
-                    <label htmlFor="form-name" className="text-xs font-bold text-warm-gray uppercase tracking-wider">Nombre Completo</label>
-                    <input 
-                      type="text" 
-                      id="form-name" 
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      className="w-full bg-cream border border-border-warm rounded-lg px-4 py-2.5 text-[0.9rem] focus:border-brand focus:ring-3 focus:ring-brand/10 transition-all outline-none text-carbon" 
-                      placeholder="Ej. Juan Pérez" 
-                      required 
-                    />
-                  </div>
-
-                  <div className="flex flex-col gap-1.5">
-                    <label htmlFor="form-phone" className="text-xs font-bold text-warm-gray uppercase tracking-wider">Teléfono / Celular</label>
-                    <input 
-                      type="tel" 
-                      id="form-phone" 
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      className="w-full bg-cream border border-border-warm rounded-lg px-4 py-2.5 text-[0.9rem] focus:border-brand focus:ring-3 focus:ring-brand/10 transition-all outline-none text-carbon" 
-                      placeholder="Ej. 0998765432" 
-                      required 
-                    />
-                  </div>
-
-                  <div className="flex flex-col gap-1.5 sm:col-span-2">
-                    <label htmlFor="form-email" className="text-xs font-bold text-warm-gray uppercase tracking-wider">Correo Electrónico</label>
-                    <input 
-                      type="email" 
-                      id="form-email" 
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      className="w-full bg-cream border border-border-warm rounded-lg px-4 py-2.5 text-[0.9rem] focus:border-brand focus:ring-3 focus:ring-brand/10 transition-all outline-none text-carbon" 
-                      placeholder="Ej. juan@correo.com" 
-                      required 
-                    />
-                  </div>
-
-                  <div className="flex flex-col gap-1.5 sm:col-span-2">
-                    <label htmlFor="form-message" className="text-xs font-bold text-warm-gray uppercase tracking-wider">¿En qué podemos ayudarte?</label>
-                    <textarea 
-                      id="form-message" 
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      rows="4" 
-                      className="w-full bg-cream border border-border-warm rounded-lg px-4 py-2.5 text-[0.9rem] focus:border-brand focus:ring-3 focus:ring-brand/10 transition-all outline-none text-carbon resize-none" 
-                      placeholder="Escribe tu mensaje aquí..." 
-                      required
-                    ></textarea>
-                  </div>
-
-                  <div className="sm:col-span-2 mt-2">
-                    <button 
-                      type="submit" 
-                      disabled={isSubmitting}
-                      className="w-full bg-brand hover:bg-brand-hover text-white py-3 rounded-lg font-semibold text-[0.95rem] tracking-wide transition-all duration-300 shadow-sm cursor-pointer disabled:opacity-50 flex items-center justify-center gap-2"
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <i className="fa-solid fa-circle-notch animate-spin"></i> Enviando...
-                        </>
-                      ) : (
-                        "Enviar Mensaje"
-                      )}
-                    </button>
-                  </div>
-
-                  {formSubmitted && (
-                    <div className="sm:col-span-2 bg-forest/10 border border-forest/20 text-forest text-sm font-semibold rounded-lg p-3 text-center transition-all animate-fade-in-up">
-                      <i className="fa-solid fa-circle-check"></i> ¡Gracias! Tu mensaje ha sido recibido. Nos comunicaremos contigo pronto.
-                    </div>
-                  )}
-
-                </form>
+              {/* Botón WhatsApp Directo Prominente */}
+              <div className="lg:col-span-7 bg-white rounded-2xl border border-border-warm p-8 md:p-12 shadow-sm text-center flex flex-col items-center justify-center gap-6">
+                <div className="w-20 h-20 bg-[#25D366]/10 rounded-full flex items-center justify-center text-[#25D366] text-4xl mb-2">
+                  <i className="fa-brands fa-whatsapp"></i>
+                </div>
+                <h4 className="text-2xl md:text-3xl font-bold font-title text-carbon">Contacto Directo por WhatsApp</h4>
+                <p className="text-warm-gray text-[0.95rem] max-w-md">
+                  Conversa directamente con Betty Guerrero sin formularios previos. Recibe atención rápida sobre arriendos, ventas y citas para visitar propiedades.
+                </p>
+                <a 
+                  href="https://wa.me/593992754572?text=Hola%20Betty%20Guerrero,%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20sus%20propiedades%20disponibles." 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="w-full sm:w-auto px-8 py-4 bg-[#25D366] hover:bg-[#20BA5A] text-white text-lg font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-3 cursor-pointer hover:scale-105"
+                >
+                  <i className="fa-brands fa-whatsapp text-2xl"></i> Enviar Mensaje por WhatsApp
+                </a>
+                <span className="text-xs text-warm-gray flex items-center gap-1.5 mt-1">
+                  <i className="fa-solid fa-clock text-brand"></i> Atención directa e inmediata
+                </span>
               </div>
 
             </div>
@@ -585,10 +511,17 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 border-b border-white/10 pb-12">
             
             <div>
-              <h3 className="text-xl font-bold font-title text-white tracking-tight mb-4 flex items-center gap-3">
-                <img src="/logo.png" alt="Logo" className="h-10 w-auto object-contain rounded-md" />
-                <span>Bienes Raíces<span className="text-brand">.</span></span>
-              </h3>
+              <div className="flex items-center gap-3 mb-4">
+                <img src="/logo.jpg" alt="Betty Guerrero Bienes Raíces" className="h-10 w-auto object-contain rounded-md" />
+                <div className="flex flex-col leading-none">
+                  <span className="text-lg font-bold text-white">Betty Guerrero</span>
+                  <span className="text-xs text-brand font-medium mt-1">Bienes Raíces</span>
+                </div>
+              </div>
+              <p className="text-xs text-white/70 leading-relaxed">
+                Corredora de Bienes Raíces Licencia Profesional ACBIRP 695.<br />
+                Asesoría inmobiliaria en Quito y los valles.
+              </p>
             </div>
 
             <div>
@@ -596,7 +529,7 @@ export default function Home() {
               <ul className="flex flex-col gap-2.5 text-[0.9rem] text-white/60">
                 <li><a href="#inicio" className="hover:text-brand transition-colors">Inicio</a></li>
                 <li><a href="#propiedades" className="hover:text-brand transition-colors">Propiedades</a></li>
-                <li><a href="#nosotros" className="hover:text-brand transition-colors">Nosotros</a></li>
+                <li><a href="#nosotros" className="hover:text-brand transition-colors">Sobre Mí</a></li>
                 <li><a href="#contacto" className="hover:text-brand transition-colors">Contacto</a></li>
               </ul>
             </div>
@@ -608,7 +541,7 @@ export default function Home() {
                   <button 
                     onClick={() => {
                       setSearchSector("La Mariscal");
-                      document.getElementById("propiedades").scrollIntoView();
+                      document.getElementById("propiedades")?.scrollIntoView();
                     }}
                     className="hover:text-brand transition-colors cursor-pointer text-left"
                   >
@@ -619,7 +552,7 @@ export default function Home() {
                   <button 
                     onClick={() => {
                       setSearchSector("Cotocollao");
-                      document.getElementById("propiedades").scrollIntoView();
+                      document.getElementById("propiedades")?.scrollIntoView();
                     }}
                     className="hover:text-brand transition-colors cursor-pointer text-left"
                   >
@@ -630,7 +563,7 @@ export default function Home() {
                   <button 
                     onClick={() => {
                       setSearchSector("Quito Tenis");
-                      document.getElementById("propiedades").scrollIntoView();
+                      document.getElementById("propiedades")?.scrollIntoView();
                     }}
                     className="hover:text-brand transition-colors cursor-pointer text-left"
                   >
@@ -641,7 +574,7 @@ export default function Home() {
                   <button 
                     onClick={() => {
                       setSearchSector("El Bosque");
-                      document.getElementById("propiedades").scrollIntoView();
+                      document.getElementById("propiedades")?.scrollIntoView();
                     }}
                     className="hover:text-brand transition-colors cursor-pointer text-left"
                   >
@@ -652,7 +585,7 @@ export default function Home() {
                   <button 
                     onClick={() => {
                       setSearchSector("Redondel del Ciclista");
-                      document.getElementById("propiedades").scrollIntoView();
+                      document.getElementById("propiedades")?.scrollIntoView();
                     }}
                     className="hover:text-brand transition-colors cursor-pointer text-left"
                   >
@@ -663,7 +596,7 @@ export default function Home() {
                   <button 
                     onClick={() => {
                       setSearchSector("Monteserrín");
-                      document.getElementById("propiedades").scrollIntoView();
+                      document.getElementById("propiedades")?.scrollIntoView();
                     }}
                     className="hover:text-brand transition-colors cursor-pointer text-left"
                   >
@@ -676,15 +609,14 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-white/40 text-[0.8rem]">
-            <p>&copy; {new Date().getFullYear()} Bienes Raíces. Todos los derechos reservados.</p>
-            <p>Estética Minimalista Cálida</p>
+            <p>&copy; {new Date().getFullYear()} Betty Guerrero - Corredora de Bienes Raíces Licencia Profesional ACBIRP 695.</p>
           </div>
         </div>
       </footer>
 
       {/* --- Botón WhatsApp Flotante --- */}
       <a 
-        href="https://wa.me/593992754572?text=Hola%20Bienes%20Ra%C3%ADces,%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20sus%20propiedades%20disponibles." 
+        href="https://wa.me/593992754572?text=Hola%20Betty%20Guerrero,%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20sus%20propiedades%20disponibles." 
         target="_blank" 
         rel="noopener noreferrer" 
         className="fixed bottom-8 right-8 w-14 h-14 bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-full flex items-center justify-center text-2xl shadow-lg hover:scale-110 active:scale-95 z-40 transition-all duration-300"
@@ -849,10 +781,10 @@ export default function Home() {
               <div className="bg-lino rounded-2xl border border-border-warm p-6 flex flex-col md:flex-row items-center justify-between gap-6">
                 <div>
                   <h5 className="font-bold text-[1.05rem] text-carbon mb-1">¿Te interesa agendar una visita?</h5>
-                  <p className="text-warm-gray text-xs">Conéctate al instante con un asesor para recibir información detallada.</p>
+                  <p className="text-warm-gray text-xs">Conéctate directamente con Betty Guerrero para agendar una visita a este inmueble.</p>
                 </div>
                 <a 
-                  href={`https://wa.me/593992754572?text=Hola%20Bienes%20Ra%C3%ADces,%20me%20interesa%20obtener%20m%C3%A1s%20detalles%20de%20la%20propiedad:%20"${encodeURIComponent(selectedProperty.title)}"%20con%20precio%20de%20$${selectedProperty.price}.`} 
+                  href={`https://wa.me/593992754572?text=Hola%20Betty%20Guerrero,%20me%20interesa%20obtener%20m%C3%A1s%20detalles%20de%20la%20propiedad:%20"${encodeURIComponent(selectedProperty.title)}"%20con%20precio%20de%20$${selectedProperty.price}.`} 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="bg-[#25D366] hover:bg-[#20BA5A] text-white px-5 py-3 rounded-lg font-bold text-[0.9rem] flex items-center gap-2 transition-all duration-300 shadow-sm whitespace-nowrap cursor-pointer hover:scale-102"

@@ -12,9 +12,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Bienes Raíces | Propiedades Exclusivas en Quito y Ecuador",
-  description: "Encuentra departamentos y casas en arriendo o venta en Quito y todo el Ecuador. Landing page inmobiliaria minimalista, profesional y exclusiva.",
-  keywords: ["inmobiliaria quito", "departamentos arriendo quito", "casas venta cumbaya", "propiedades ecuador", "bienes raices inmobiliaria"],
+  title: "Betty Guerrero | Corredora de Bienes Raíces - Licencia ACBIRP 695",
+  description: "Propiedades exclusivas en arriendo y venta en Quito y sus valles. Betty Guerrero, Corredora de Bienes Raíces Licencia Profesional ACBIRP 695.",
+  keywords: ["Betty Guerrero", "bienes raices quito", "corredora bienes raices quito", "departamentos arriendo quito", "casas venta quito", "ACBIRP 695"],
 };
 
 export default function RootLayout({ children }) {
