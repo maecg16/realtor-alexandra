@@ -93,16 +93,7 @@ export default function Home() {
               <li><a href="#contacto" className="hover:text-brand transition-colors duration-200">Contacto</a></li>
             </ul>
           </nav>
-          <div>
-            <a 
-              href="https://wa.me/593992754572?text=Hola%20Betty%20Guerrero,%20me%20gustar%C3%ADa%20agendar%20una%20consulta%20inmobiliaria."
-              target="_blank"
-              rel="noopener noreferrer" 
-              className="hidden sm:inline-flex px-5 py-2.5 rounded-lg bg-[#25D366] hover:bg-[#20BA5A] text-white text-[0.9rem] font-semibold items-center gap-2 transition-all duration-300 shadow-sm hover:scale-102"
-            >
-              <i className="fa-brands fa-whatsapp text-lg"></i> Contactar por WhatsApp
-            </a>
-          </div>
+          {/* Navbar sin botón superior según indicación */}
         </div>
       </header>
 
