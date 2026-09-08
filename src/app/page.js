@@ -357,7 +357,7 @@ export default function Home() {
                 <i className="fa-solid fa-award"></i> Licencia Profesional ACBIRP 695
               </div>
               <h2 className="text-3xl md:text-4xl font-bold font-title tracking-tight text-carbon leading-[1.2] mb-6">
-                Más de 10 años guiándote hacia tu hogar ideal en Quito
+                Más de 10 años de experiencia en el manejo de propiedades
               </h2>
               <p className="text-warm-gray text-[0.95rem] leading-relaxed mb-8">
                 Soy Betty Guerrero, Corredora de Bienes Raíces con amplia trayectoria en la compra, venta y arriendo de propiedades en Quito y sus valles. Mi prioridad es ofrecerte una atención profesional, cercana y transparente, cuidando cada detalle legal y comercial para que tomes la mejor decisión con total tranquilidad.
